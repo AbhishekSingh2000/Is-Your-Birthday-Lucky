@@ -6,13 +6,17 @@ var output = document.querySelector(".otpt");
 var anim1 = document.querySelector(".anime1");
 var anim2 = document.querySelector(".anime2");
 
-var bDate=0;
-var lnum=0;
-
 function enterCheck(){
     console.log(input1.value.split('-').join(''));
     var bDate=input1.value.split('-').join('');
     var lnum=input2.value;
+
+    var dateSum=0;
+    while(bDate!==0){
+        dateSum=dateSum+(bDate%10);
+        bDate=Math.floor(bDate/10);
+    }
+
     if(bDate===""){
         output.innerText="Enter an Appropriate Date";
     }
@@ -20,10 +24,13 @@ function enterCheck(){
         output.innerText="Enter an Appropriate Lucky Number"; 
     }
 
-    if(bDate%lnum===0){
+    else if(dateSum%lnum===0){
         output.innerText="🎂🎉Congratulations! Your Birthday is a Lucky Date🎉🎂"; 
         if(anim1.style.display="none"){
             anim1.style.display="block";
+         }
+         if(anim2.style.display="block"){
+            anim2.style.display="none";
          }
         }
         else {
