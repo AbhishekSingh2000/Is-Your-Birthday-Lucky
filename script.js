@@ -28,6 +28,9 @@ function enterCheck(){
         }
         else {
         output.innerText="Sorry! But your Birthday is not a lucky Date w.r.t our criteria."; 
+        if(anim1.style.display="block"){
+            anim1.style.display="none";
+         }
         if(anim2.style.display="none"){
             anim2.style.display="block";
          }
